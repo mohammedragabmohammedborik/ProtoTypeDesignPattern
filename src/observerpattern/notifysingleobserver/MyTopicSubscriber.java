@@ -1,4 +1,4 @@
-package observerpattern;
+package observerpattern.notifysingleobserver;
 
 public class MyTopicSubscriber implements Observer {
 
@@ -10,7 +10,7 @@ public class MyTopicSubscriber implements Observer {
     }
     @Override
     public void observe() {
-        String msg = (String) topic.getUpdate(this);
+        String msg = (String) topic.getUpdate();
         if(msg == null){
             System.out.println(name+":: No new message");
         }else
@@ -19,7 +19,9 @@ public class MyTopicSubscriber implements Observer {
 
     @Override
     public void subScribeSubject(Subject sub) {
+
         this.topic=sub;
+
     }
 
 }
